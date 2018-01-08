@@ -1,4 +1,4 @@
-FROM docker.platform.cloud.coe.ic.gov/node
+FROM docker.platform.cloud.coe.ic.gov/centos:7
 
 LABEL VERSION="1.0.0" \
     RUN="docker run -d -p 5601:5601 docker.platform.cloud.coe.ic.gov/nga-r/kibana4" \
@@ -10,11 +10,6 @@ LABEL VERSION="1.0.0" \
 RUN mkdir -p /kibana4
 WORKDIR /kibana4
 COPY . /kibana4
-
-RUN npm set registry http://npm.appdev.proj.coe.ic.gov
-
-RUN npm install
-#RUN npm run less
 
 # Our app will run on port 5601
 EXPOSE 5601
